@@ -1,0 +1,123 @@
+h1{
+    color: #fff;
+}
+body{
+    background-color: #000;
+}
+.dancing_triangle{
+    margin: 40px;
+    width: 100px;
+    height: 100px;
+background: rgb(228, 9, 9);
+clip-path: polygon(0 0, 100% 0, 100% 100%);
+animation: dancing 2s infinite
+cubic-bezier(0.3,1,0,1);
+
+
+}
+@keyframes dancing {
+    25%{
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+    50%{
+        clip-path: polygon(0 0, 100% 100%, 0 100%);
+    }
+    75%{
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        
+    }
+    100%{
+        clip-path: polygon(100% 0, 100% 100%, 0 0);
+    }
+}
+.tennis_ball{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(at 30% 30%, #0000, #0000) rgb(149,255,0);
+    position: relative;
+    margin: 70px;
+    left: 0px;
+    top: 0px;
+    animation: move-l 1s, move-t 0.3s;
+    animation-timing-function: cubic-bezier(0.5, -200, 0.5,200);
+    animation-iteration-count: infinite;
+}
+@keyframes move-l {
+    100%{
+        left: 1px;
+    }
+    
+}
+@keyframes move-t {
+    100%{
+       top: 0.3px;
+
+    }
+    
+}
+@keyframes pulsing {
+    100%{
+        box-shadow: 0 0 0 100px #000;
+    }
+}
+.heat_waves{
+    margin: 80px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffa500;
+    box-shadow: 0 0 0 0 saddlebrown;
+    animation: pulsing 1.5s infinite linear;
+    position: relative;
+}
+.heat_waves::before,
+.heat_waves::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 saddlebrown;
+    animation: inherit;
+    animation-delay: -0.5s;
+}
+@keyframes charging {
+    100%{
+        background-size: 120% 100%;
+    }
+    
+}
+.battary_charging{
+    width: 160px;
+    height: 80px;
+    margin: 45px;
+    border: 2px solid #ff6d00;
+    padding: 3px;
+    background:repeating-linear-gradient(90deg,#ff6d00 0 20px,#0000 0 30px)
+    left/0% 100% no-repeat content-box content-box;
+    position: relative;
+    animation: charging 2s infinite steps(6);
+}
+.battary_charging::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: 100px;
+    width: 10px;
+    background: linear-gradient(#0000 calc(50% - 14px),
+    #ff6d00 0 calc(50% - 10px),
+    #000 0 calc(50% + 10px),
+    #ff6d00 0 calc(50% + 14px),
+    #000)
+    left/100% 100%,
+    linear-gradient(#ff6d00 calc(50%-10px),
+    #000 0 clac(50% + 10px),
+    #ff6d00 0)
+    left/2px 100%
+    linear-gradient(#000 calc(50%-10px),
+    #ff6d00 calc(50% + 10px),
+    #000 0)
+    right/4px 100%;
+    background-repeat: no-repeat;
+}
